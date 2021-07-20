@@ -1,9 +1,9 @@
 <?php
 //variable connection
-$servername = "162.214.99.29";
-$username = "Alan2";
-$password = "qwerty123";
-$dbname = "mts";
+$servername = "localhost";
+$username = "user";
+$password = "password";
+$dbname = "DB";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
