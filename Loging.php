@@ -1,9 +1,9 @@
 <?php
 //Variables base de datos
-$servername = "162.214.99.29";
-$username = "Alan2";
-$password = "qwerty123";
-$dbname = "mts";
+$servername = "localhost";
+$username = "user";
+$password = "password";
+$dbname = "DB";
 
 //Hora y Fecha Proceso
 date_default_timezone_set("America/Mexico_City");
