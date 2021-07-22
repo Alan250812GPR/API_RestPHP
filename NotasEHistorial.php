@@ -18,21 +18,21 @@ $horaActual = date('H:i:s');
 //Fin Hora Fecha
 
 //Variables
-$Op = $_GET['OP'];
-$notaParam = $_GET['valor'];
-$id = "";
-$nota = "";
-$etapa = "";
-$operario = "";
-$AudOperario = "";
-$notaNota = "";
-$IdID = "";
-$EtapaNota = "";
-$ResiltEtapa = "";
+$Param = $_GET['OP'];
+$Param = $_GET['valor'];
+$Param = "";
+$Param = "";
+$Param = "";
+$Param = "";
+$Param = "";
+$Param = "";
+$Param = "";
+$Param = "";
+$Param = "";
 //fin variables
 
 //Inventario
-$historial = "SELECT * FROM invctrlhistorial WHERE Nota = ".$notaParam." ORDER BY Etapa DESC LIMIT 1";
+$historial = "SELECT * FROM table WHERE Nota = ".$notaParam." ORDER BY Etapa DESC LIMIT 1";
 $result = $conn->query($historial);
 
 if ($result->num_rows > 0) {
@@ -51,15 +51,15 @@ if ($result->num_rows > 0) {
 //fin Inventario
 
 //Notas 
-$sql = "SELECT InvCtrl,provee,NUMERO,ID FROM notas WHERE NUMERO = ".$notaParam;
+$sql = "SELECT value1,2,3,4 FROM table WHERE NUMERO = ".$notaParam;
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
-   $EtapaNota = $row["InvCtrl"];
-   $IdID = $row["ID"];
-   $notaNota = $row["NUMERO"];
-   $Provee = $row["provee"];
+   $param = $row["Valor"];
+   $param = $row["Valor"];
+   $param = $row["Valor"];
+   $param = $row["Valor"];
   }
 
 } else {
@@ -69,7 +69,7 @@ if ($result->num_rows > 0) {
 //Fin Notas
 
 //validar operario
-if ($Op == $operario) {
+if ($Op == $param) {
   $resultadoOP = $operario;  
 } else {
   $resultadoOP = $Op;
@@ -77,30 +77,30 @@ if ($Op == $operario) {
 //Fin operario validar
 
 //validar nota
-if ($nota != $notaParam) {
-  $nota = $notaParam;
+if ($param != $param) {
+  $param = $param;
 }
 
 //validar etapa
 
-if ($etapa != "" || $etapa != null) {
-  if ($etapa >= 1 && $etapa <= 4) {
-    $ResiltEtapa = $etapa."+1";
-  }else if ($etapa >= 5 && $etapa <= 9){
-    $ResiltEtapa = $etapa."+1";
-  }else if ($etapa == 10){
-    $ResiltEtapa = $etapa = "10";
+if ($param != "" || $param != null) {
+  if ($param >= 1 && $param <= 4) {
+    $param = $param."+1";
+  }else if ($param >= 5 && $param <= 9){
+    $param = $param."+1";
+  }else if ($param == 10){
+    $param = $param = "10";
   }
   //echo $ResiltEtapa;
   //echo "<br/>";
 }
- else if($EtapaNota != "" || $EtapaNota != null) {
-  if ($EtapaNota >= 1 && $EtapaNota <= 4) {
-    $ResiltEtapa = $EtapaNota."+1";
-  }else if ($EtapaNota >= 5 && $EtapaNota <= 9){
-    $ResiltEtapa = $EtapaNota."+1";
-  }else if ($EtapaNota == 10){
-    $ResiltEtapa = $EtapaNota = "10";
+ else if($param != "" || $param != null) {
+  if ($param >= 1 && $param <= 4) {
+    $param = $param."+1";
+  }else if ($param >= 5 && $param <= 9){
+    $param = $param."+1";
+  }else if ($param == 10){
+    $param = $param = "10";
   }
   //echo $ResiltEtapa;
   //echo "<br/>";
@@ -118,8 +118,8 @@ if ($AudOperario == "") {
 //Fin AudOperario
 
 //querys
-$UPDATENOTAS = "UPDATE notas SET invctrl = ".$ResiltEtapa." WHERE ID = ".$IdID;
-$INSERTINVNOTGA = "INSERT INTO invctrlhistorial (Nota, Etapa, Operario, AudOperario, AudFecha, AudHora) VALUES (".$nota.", ".$ResiltEtapa." , ".$resultadoOP.", ".$AudOperario.", '".$fechaActual."','".$horaActual."')";
+$UPDATENOTAS = "UPDATE value SET table = ".$ResiltEtapa." WHERE ID = ".$IdID;
+$INSERTINVNOTGA = "INSERT INTO value (Valor, Valor, Valor, Valor, Valor, Valor) VALUES (".$param.", ".$param." , ".$param.", ".$param.", '".$param."','".$param."')";
 
 //echo $UPDATENOTAS;
 //echo "<br/>";
@@ -140,7 +140,7 @@ if ($notaNota = $notaParam || $nota = $notaParam) {
 
   //Insert 
 
-  if ($EtapaNota >=4 && $EtapaNota <10) {
+  if ($Param >=4 && $Param <10) {
     if ($conn->query($INSERTINVNOTGA) == TRUE) {
       echo "200";
     } else
