@@ -12,49 +12,49 @@ if ($conn->connect_error) {
 }
 
 $Notass = $_GET['valor'];
-$etapaConsulta = "";
+$et = "";
 
-$sql = "SELECT * FROM invctrlhistorial WHERE Nota = " . $Notass . " ORDER BY Etapa DESC LIMIT 1 ";
+$sql = "SELECT * FROM tabla WHERE Nota = " . $Param . " ORDER BY valor DESC LIMIT 1 ";
 $result = $conn->query($sql);
 
-$sql2 = "SELECT InvCtrl,provee,NUMERO FROM notas WHERE NUMERO = " . $Notass;
+$sql2 = "SELECT valor,2,3 FROM tabla WHERE NUMERO = " . $Param;
 $result2 = $conn->query($sql2);
 
 if ($result->num_rows > 0) {
   // output data of each row
   while ($row = $result->fetch_assoc()) {
-    "Id:" . $row["Id"] . ",Nota:" . $row["Nota"] . ",Etapa:" . $row["Etapa"] . ",Operario:" . $row["Operario"] . "AudOperario:" . $row["AudOperario"] . "<br>";
+    "Id:" . $row["valor"] . ",valor:" . $row["valor"] . ",valor:" . $row["valor"] . ",valor:" . $row["valor"] . "valor:" . $row["valor"] . "<br>";
 
-    switch ($row["Etapa"]) {
+    switch ($row["valor"]) {
       case "1":
-        $etapaConsulta = "Crear Nota Destajo";
+        //pasos
         break;
       case "2":
-        $etapaConsulta = "Imprimir Nota Destajo";
+        //pasos
         break;
       case "3":
-        $etapaConsulta = "Seperar Biseles y Provee 3999";
+        //pasos
         break;
       case "4":
-        $etapaConsulta = "Seperar Cristales";
+        //pasos
         break;
       case "5":
-        $etapaConsulta = "Asignar Operario";
+        //pasos
         break;
       case "6":
-        $etapaConsulta = "Entregar a Operario";
+        //pasos
         break;
       case "7":
-        $etapaConsulta = "Recibir de Operario ( Calidad )";
+        //pasos
         break;
       case "8":
-        $etapaConsulta = "Calidad - Revisar";
+        //pasos
         break;
       case "9":
-        $etapaConsulta = "Pasar a Almacen Inventario";
+        //pasos
         break;
       case "10":
-        $etapaConsulta = "Generar pago a Operario";
+        //pasos
         break;
       default:
         //Codigo despues para errores
@@ -67,39 +67,39 @@ if ($result->num_rows > 0) {
   }
 } else if ($result2->num_rows > 0) {
   while ($row = $result2->fetch_assoc()) {
-    "Nota:" . $row["NUMERO"] . ",Etapa:" . $row["InvCtrl"] . ",Operario:" . $row["provee"] . "<br>";
+    "valor:" . $row["valor"] . ",valor:" . $row["valor"] . ",valor:" . $row["valor"] . "<br>";
 
     //switch para nombre de la etapa
-    switch ($row["InvCtrl"]) {
+    switch ($row["valor"]) {
       case "1":
-        $etapaConsulta = "Crear Nota Destajo";
+        //pasos
         break;
       case "2":
-        $etapaConsulta = "Imprimir Nota Destajo";
+        //pasos
         break;
       case "3":
-        $etapaConsulta = "Seperar Biseles y Provee 3999";
+        //pasos
         break;
       case "4":
-        $etapaConsulta = "Seperar Cristales";
+        //pasos
         break;
       case "5":
-        $etapaConsulta = "Asignar Operario";
+        //pasos
         break;
       case "6":
-        $etapaConsulta = "Entregar a Operario";
+        //pasos
         break;
       case "7":
-        $etapaConsulta = "Recibir de Operario ( Calidad )";
+        //pasos
         break;
       case "8":
-        $etapaConsulta = "Calidad - Revisar";
+        //pasos
         break;
       case "9":
-        $etapaConsulta = "Pasar a Almacen Inventario";
+        //pasos
         break;
       case "10":
-        $etapaConsulta = "Generar pago a Operario";
+        //pasos
         break;
       default:
         //Codigo despues para errores
@@ -107,9 +107,9 @@ if ($result->num_rows > 0) {
     }
 
     //Generacion de informacion que pasa al telefono
-    echo "Etapa: " . $row["InvCtrl"]." ".$etapaConsulta;
+    echo "valor: " . $row["valor"]." ".$et;
     echo ", ";
-    echo "Operario: " . $row["provee"];
+    echo "valor: " . $row["valor"];
   }
 } else {
   echo "0 Results";
