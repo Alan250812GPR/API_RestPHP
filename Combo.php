@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 //query
-$sql = "SELECT NUMERO,NOMBRE FROM provee WHERE provee.`STATUS` = 1 AND TIPO = 4 AND LENGTH(NUMERO) >3 ORDER BY NOMBRE ASC";
+$sql = "SELECT NUMERO,NOMBRE FROM tabla WHERE tabla.`STATUS` = 1 AND TIPO = 4 AND LENGTH(NUMERO) >3 ORDER BY NOMBRE ASC";
 
 $result = $conn->query($sql);
 
