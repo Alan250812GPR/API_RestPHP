@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "user";
 $password = "password";
-$dbname = "DB";
+$dbname = "database";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 //query
-$sql = "SELECT NUMERO,NOMBRE FROM tabla WHERE tabla.`STATUS` = 1 AND TIPO = 4 AND LENGTH(NUMERO) >3 ORDER BY NOMBRE ASC";
+$sql = "SELECT NUM,NOM FROM provee WHERE pro.NU = valor OR pro.NU = valor OR pro.NU = valor OR pro.NU = valor OR pro.NU = valor OR pro.NU = valor OR pro.NU = valor OR pro.NU = valor or pro.`STATUS` = 1 AND TI = 4 AND LENGTH(NUM) >3  ORDER BY NOM ASC;";
 
 $result = $conn->query($sql);
 
